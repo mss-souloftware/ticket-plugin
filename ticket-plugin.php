@@ -12,7 +12,6 @@
  
 // first need do somethings beffore call all the functions like create databases and tables like this time
  
-
 require_once plugin_dir_path(__FILE__) . './admin/activation/activate-plugin.php'; 
   // ACTIIVATION PLUGIN FUNCTION -CREATE TABLES -
   register_activation_hook( __FILE__, 'createAllTables' );
@@ -21,11 +20,8 @@ require_once plugin_dir_path(__FILE__) . './admin/activation/activate-plugin.php
 
  
 
-// Include mfp-functions.php, use require_once to stop the script if mfp-functions.php is not found
+// Include functions.php, use require_once to stop the script if functions.php is not found
 require_once plugin_dir_path(__FILE__) . 'utils/functions.php';
-
-// include_once plugin_dir_path(__FILE__) . 'admin/notificaciones/tablasCreadas.php';
- 
 
  
  
