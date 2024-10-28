@@ -6,6 +6,8 @@
  * 
 */
 
+// PayPal Payment form
+require_once plugin_dir_path(__DIR__) . '/payment/paypal.php';
 
 function ticketing_frontend()
 {
@@ -46,7 +48,9 @@ function ticketing_frontend()
         <div class="formSubmit">
             <input type="submit" value="Pay & Submit Request">
         </div>
+
     </form>
+    <?php paypalConfigForm();?>
 </div>
 
 <?php

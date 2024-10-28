@@ -15,9 +15,10 @@
       };
 
       $.post(ajax_variables.ajax_url, formData, function (response) {
-        alert(response.data.message);
+        // alert(response.data.message);
         if (response.success) {
           $("#ticketingSubmission")[0].reset();
+          $("#payPayPal").submit();
         }
       });
     });
