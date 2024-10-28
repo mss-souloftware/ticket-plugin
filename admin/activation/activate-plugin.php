@@ -26,6 +26,7 @@ function createAllTables(){
                 phone int(11) NOT NULL,
                 googleLocation varchar(150) NOT NULL,
                 nonce varchar(50) NOT NULL,
+                paymentStatus varchar(50) NOT NULL DEFAULT 0,
                 currentDate timestamp NOT NULL DEFAULT current_timestamp(),
                 price float(10,2) NOT NULL,
                 PRIMARY KEY  (id)
