@@ -34,4 +34,33 @@
       );
     }
   });
+
+  // Event listener for the Save Status button
+  $(".save-status-ticket").on("click", function () {
+    var rowId = $(this).attr("row-id");
+    var selectedStatus = $("#ticketStatus-" + rowId).val();
+
+    if (selectedStatus === null) {
+      alert("Please select a status before saving.");
+      return;
+    }
+
+    $.post(
+      ajax_variables.ajax_url,
+      {
+        action: "update_ticket_status",
+        ticket_id: rowId,
+        status: selectedStatus,
+        nonce: ajax_variables.nonce,
+      },
+      function (response) {
+        if (response.success) {
+          alert(response.data.message);
+          location.reload();
+        } else {
+          alert(response.data.message);
+        }
+      }
+    );
+  });
 })(jQuery);

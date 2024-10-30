@@ -74,6 +74,35 @@ function delete_single_ticket() {
     wp_die();
 }
 
+// Register AJAX action for updating ticket status
+add_action('wp_ajax_update_ticket_status', 'update_ticket_status');
+function update_ticket_status() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'custom_ticket_plugin';
+
+    $ticket_id = isset($_POST['ticket_id']) ? intval($_POST['ticket_id']) : 0;
+    $status = isset($_POST['status']) ? intval($_POST['status']) : null;
+
+    if ($ticket_id && $status !== null) {
+        $updated = $wpdb->update(
+            $table_name,
+            ['paymentStatus' => $status],
+            ['id' => $ticket_id],
+            ['%d'],
+            ['%d']
+        );
+
+        if ($updated !== false) {
+            wp_send_json_success(['message' => 'Status updated successfully.']);
+        } else {
+            wp_send_json_error(['message' => 'Failed to update status.']);
+        }
+    } else {
+        wp_send_json_error(['message' => 'Invalid data provided.']);
+    }
+
+    wp_die();
+}
 
 
 function custom_plugin_menu() {

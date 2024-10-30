@@ -91,14 +91,15 @@ function custom_plugin_page() {
 
                             <div class="columnDataStatus">
                                 <h2>Change Status</h2>
-                                <select name="" id="ticketStatus">
+                                <select class="ticket-status" id="ticketStatus-<?php echo esc_attr($row->id); ?>">
                                     <option disabled selected value="">Change Status</option>
                                     <option value="1">Accept</option>
                                     <option value="2">Reject</option>
                                     <option value="0">Pending</option>
                                 </select>
                                 <div class="buttonColumns">
-                                    <button id="saveStatusTicket">Save Status</button>
+                                    <button type="button" class="save-status-ticket"
+                                        row-id="<?php echo esc_attr($row->id); ?>">Save Status</button>
                                     <button row-id="<?php echo $row->id;?>" id="deletThisTicket">Delete</button>
                                 </div>
                             </div>

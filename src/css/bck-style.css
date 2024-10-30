@@ -49,7 +49,7 @@
   cursor: pointer;
 }
 
-#saveStatusTicket {
+.save-status-ticket {
   background: #61ba61;
   border: 0px;
   color: #fff;
